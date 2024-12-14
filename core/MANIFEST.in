@@ -1,0 +1,28 @@
+# 包含核心文件
+include LICENSE
+include README.md
+include CONTRIBUTING.md
+include CLA
+
+# 包含核心代码
+recursive-include core/src/handgpt *.py
+
+# 包含文档
+recursive-include docs *
+
+# 包含示例代码
+recursive-include examples *
+
+# 排除构建和缓存文件
+global-exclude __pycache__/*
+global-exclude *.py[cod]
+global-exclude *.DS_Store
+global-exclude .pytest_cache
+
+# 包含打包信息
+include core/MANIFEST.in
+include core/pyproject.toml
+include core/setup.py
+
+# 确保依赖相关的文件被包含
+recursive-include handgpt.egg-info *

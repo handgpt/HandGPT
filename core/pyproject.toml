@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "handgpt"
+version = "0.1.1"
+description = "A simple tool for HandGPT"
+readme = "../README.md"
+readme-content-type = "text/markdown"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Xener", email = "github@handgpt.app"}
+]
+homepage = "https://github.com/handgpt/HandGPT"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.dependencies]
+websockets = ">=14.1"
+
+[tool.setuptools.packages.find]
+where = ["."]
