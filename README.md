@@ -66,9 +66,11 @@ For hardware setup and configuration, visit the [Hardware Guide](docs/hardware.m
 
 ## Examples
 
-HandGPT provides example agents to help developers get started quickly. For instance, the [Post to Twitter](examples/official/post_to_twitter) example demonstrates how to automate posting tweets using an LLM-powered agent. Watch the demo video:
+HandGPT provides example agents to help developers get started quickly. For instance, the Post to Twitter example demonstrates how to automate posting tweets using an LLM-powered agent. Watch the demo video:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9GSG7uFv8p8" title="Post to Twitter Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> example demonstrates how to automate posting tweets using an LLM-powered agent.
+[![Post to Twitter Demo](https://img.youtube.com/vi/9GSG7uFv8p8/0.jpg)](https://www.youtube.com/watch?v=9GSG7uFv8p8)
+
+Click the image above to watch the video on YouTube.
 
 ---
 

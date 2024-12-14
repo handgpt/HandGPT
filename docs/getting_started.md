@@ -101,18 +101,6 @@ def agent(handgpt, task_id, task_message):
 
 ---
 
-## Testing HandGPT
-
-Run the following command to verify your HandGPT installation:
-
-```python
->>> import handgpt
->>> handgpt.test()
-HandGPT OK.
-```
-
----
-
 ## Developer Contributions
 
 Developers are encouraged to freely create and upload their own `agents` to extend HandGPT’s functionality. These custom agents can be shared for others to test and use.
