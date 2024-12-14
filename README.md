@@ -102,7 +102,7 @@ We welcome contributions to HandGPT! Please check out our [Contribution Guidelin
 
 ## License
 
-HandGPT is licensed under the [MIT License](LICENSE.md). See the LICENSE file for more details.
+HandGPT is licensed under the [MIT License](LICENSE). See the LICENSE file for more details.
 
 ---
 
