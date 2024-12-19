@@ -1,6 +1,6 @@
 # HandGPT
 
-![HandGPT Logo](https://handgpt.app/logo.png)
+![HandGPT Logo](https://avatars.githubusercontent.com/u/177122101?s=100&v=4)
 
 HandGPT is an innovative tool designed for developing and testing Large Language Models (LLMs) to control devices such as smartphones and computers. The project combines software applications and intelligent hardware to empower LLMs to interact with devices through simulated vision and action.
 
