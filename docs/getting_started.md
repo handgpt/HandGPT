@@ -34,7 +34,8 @@ This guide provides a step-by-step overview for setting up and using HandGPT eff
 
 ## Recognized Screen Elements
 
-HandGPT identifies and assigns IDs to screen elements for simplified processing. Example:
+HandGPT identifies and assigns IDs to screen elements for simplified processing.
+Example:
 
 | ID | Element Name |
 | -- | ------------ |
