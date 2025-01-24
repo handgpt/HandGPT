@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="handgpt",                     # 包名，用户通过 pip install <name> 安装
-    version="0.1.1",                    # 版本号
+    version="0.1.2",                    # 版本号
     author="Xener",                     # 作者
     author_email="github@handgpt.app",  # 作者邮箱
     description="A simple tool for HandGPT",  # 简短描述
