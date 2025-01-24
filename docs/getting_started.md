@@ -14,12 +14,12 @@ This guide provides a step-by-step overview for setting up and using HandGPT eff
 2. **Data Capture**:
 
    - HandGPT captures a screenshot of your device and identifies screen elements (names and IDs).
-   - The app forwards this data along with your command to a customizable `agent`.
+   - The app forwards this data to your agent.
 
 3. **Agent Processing**:
 
-   - The `agent` processes the screen information and user command using an LLM.
-   - The `agent` generates operation instructions based on the data.
+   - The agent processes the screen information and user command using an LLM.
+   - The agent generates operation instructions based on the data.
 
 4. **Execution**:
 
@@ -27,8 +27,14 @@ This guide provides a step-by-step overview for setting up and using HandGPT eff
 
 5. **Completion**:
 
-   - Once all tasks are completed, the `agent` sends a "finished" command to HandGPT.
+   - Once all tasks are completed, the agent sends a "finished" command to HandGPT.
    - HandGPT notifies the user that the operation is complete.
+
+---
+
+## Additional Information About Agents
+
+The locally running agent is essentially an agent server that connects to HandGPT using the WebSocket (WS) protocol. Within the HandGPT app, users can specify and connect to their own custom agents, enabling personalized and flexible functionality.
 
 ---
 
@@ -47,7 +53,7 @@ Example:
 
 ## Operation Instructions
 
-The `agent` generates operation instructions using basic actions (e.g., mouse actions, keyboard inputs). Operations are simplified by targeting elements via their IDs, improving LLM efficiency and accuracy.
+The agent generates operation instructions using basic actions (e.g., mouse actions, keyboard inputs). Operations are simplified by targeting elements via their IDs, improving LLM efficiency and accuracy.
 
 Refer to the [API Reference](api_reference.md) for detailed instruction formats.
 
@@ -73,7 +79,7 @@ HandGPT OK.
 
 ### Environment Requirements
 
-- Python version: `>= 3.9`
+- Python version: >= 3.9
 
 ---
 
@@ -104,7 +110,7 @@ def agent(handgpt, task_id, task_message):
 
 ## Developer Contributions
 
-Developers are encouraged to freely create and upload their own `agents` to extend HandGPT’s functionality. These custom agents can be shared for others to test and use.
+Developers are encouraged to freely create and upload their own agents to extend HandGPT’s functionality. These custom agents can be shared for others to test and use.
 
 ### Upload Directory Structure
 
@@ -139,7 +145,7 @@ Follow these steps to create and upload your agent:
    ```bash
    mkdir -p developer_name/agent_name
    cd developer_name/agent_name
-   ````
+   ```
 
 3. **Implement Your Agent**:
 
@@ -163,7 +169,7 @@ This structure ensures consistency and discoverability for users.
 
 ## Next Steps
 
-1. Customize your `agent` to handle specific tasks.
+1. Customize your agent to handle specific tasks.
 2. Refer to the [API Reference](api_reference.md) for detailed command formats.
 3. Start using HandGPT to automate device operations effortlessly!
 
