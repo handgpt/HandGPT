@@ -95,37 +95,49 @@ class HandGPT:
         """
         异步接收消息，并根据消息内容分发处理。
         """
-        try:
-            async for message in self.ws_connection:
-                logger.debug("Message received: %s", message)
-                data = json.loads(message)
-                message_id = data.get("messageId")
+        while True:
+            try:
+                async for message in self.ws_connection:
+                    logger.debug("Message received: %s", message)
+                    data = json.loads(message)
+                    message_id = data.get("messageId")
+                    logger.info("Message ID received: %s", message_id)
 
-                # 检查是否为请求的响应
-                if message_id and message_id in self.pending_responses:
-                    self.pending_responses[message_id].set_result(data)
-                    logger.info("Response received for message ID: %s", message_id)
-                    del self.pending_responses[message_id]
-                else:
-                    # 提交给 agent 处理
-                    task_id = data.get("taskId")
-                    task_message = data['payload'].get("message")
-                    logger.info("New task received: task_id=%s, task_message=%s", task_id, task_message)
-                    # 提交任务并为 Future 添加回调以捕获异常
-                    future = self.executor.submit(self.agent_func, self, task_id, task_message)
-                    future.add_done_callback(self.handle_exception)
+                    # 检查是否为请求的响应
+                    if message_id and message_id in self.pending_responses:
+                        # 尝试 set_result
+                        try:
+                            self.pending_responses[message_id].set_result(data)
+                            logger.info("Response received for message ID: %s", message_id)
+                        except asyncio.InvalidStateError:
+                            # 如果 Future 已经被取消 (超时或者其他原因)，会出现 InvalidStateError
+                            logger.warning("Future for message ID %s is already done/cancelled, ignoring duplicate response.", message_id)
+                        finally:
+                            # 无论 set_result 成功与否，都要从字典中删除，避免内存泄漏
+                            del self.pending_responses[message_id]
+                    else:
+                        # 提交给 agent 处理
+                        task_id = data.get("taskId")
+                        task_message = data['payload'].get("message")
+                        logger.info("New task received: task_id=%s, task_message=%s", task_id, task_message)
+                        # 提交任务并为 Future 添加回调以捕获异常
+                        future = self.executor.submit(self.agent_func, self, task_id, task_message)
+                        future.add_done_callback(self.handle_exception)
 
-        except ConnectionClosed:
-            logger.warning("Connection closed while receiving message. Reconnecting...")
-            await self.connect()
-        except Exception as e:
-            logger.error("Unexpected error while receiving message: %s", e, exc_info=True)
+            except ConnectionClosed:
+                logger.warning("Connection closed while receiving message. Reconnecting...")
+                await self.connect()
+            except Exception as e:
+                logger.error("Unexpected error while receiving message: %s", e, exc_info=True)
+                logger.debug(traceback.format_exc())
+                continue
 
     async def _send_async(self, payload):
         """异步发送消息到 WebSocket，并处理连接关闭的情况"""
         while True: # 添加循环以处理重连
             if not self.ws_connection:
                 logger.error("WebSocket connection is not open. Waiting for reconnection...", exc_info=True)
+                await self.connect()  # 调用重连
                 await asyncio.sleep(1) # 等待重连
                 continue  # 继续循环检查连接
             try:
@@ -135,6 +147,7 @@ class HandGPT:
                 break # 发送成功，退出循环
             except ConnectionClosed:
                 logger.warning("Connection closed during send. Waiting for reconnection...")
+                self.ws_connection = None
                 await asyncio.sleep(1)
             except Exception as e:
                 logger.error("Error sending message: %s", e, exc_info=True)
@@ -165,7 +178,7 @@ class HandGPT:
             logger.error(f"Error waiting for response: {e}", exc_info=True)
             return None
 
-    def _await_response(self, message_id, request, timeout=30):
+    def _await_response(self, message_id, request, timeout=20):
         """同步包装异步等待响应"""
         try:
             result = asyncio.run_coroutine_threadsafe(
@@ -306,7 +319,7 @@ class HandGPT:
         logger.info("Sending click command for task ID %s with element %s and offset %s", task_id, element_id, offset)
         self._send(request)
 
-    def cmd_longclick(self, task_id, element_id, offset, time_sec, key = "left"):
+    def cmd_longclick(self, task_id, element_id, offset = [], time_sec = 1, key = "left"):
         """
         发送长按指令。
         
@@ -501,8 +514,8 @@ def init(agent_func, user, password):
     初始化 HandGPT 实例并连接到服务器。
     
     :param agent_func: 用户定义的 agent 函数，用于处理任务
-    :param user: 用户名
-    :param password: 密码
+    :param user: 用户名（目前未使用）
+    :param password: 密码（目前未使用）
     """
     url = f"{AGENT_SERVER_PROTOCOL}://{AGENT_SERVER_URL}:{AGENT_SERVER_PORT}/{AGENT_SERVER_PATH}?user={user}&password={password}"
     logger.info("Initializing HandGPT with URL: %s", url)
@@ -518,7 +531,6 @@ def init(agent_func, user, password):
         loop.run_forever()
     except KeyboardInterrupt:
         logger.info("Shutting down HandGPT...")
-
 # 测试函数
 def test():
     print("HandGPT OK.")
