@@ -24,7 +24,7 @@
 
 ---
 
-## 为什么选择 HandGPT？
+## 为什么选择智手AI？
 
 LLM 正在推动各行业的生产力革命，但实现实际应用仍面临挑战。HandGPT 专注于最具影响力和可扩展性的 AI 应用之一——使通用人工智能（AGI）能够控制设备。
 
@@ -70,7 +70,7 @@ pip install handgpt
 
 ## 示例
 
-HandGPT 提供示例代理，帮助开发者快速入门。例如，"发布 Twitter" 示例演示了如何使用 LLM 驱动的代理自动化发布推文的操作。观看演示视频：
+智手AI 提供示例代理，帮助开发者快速入门。例如，"发布 Twitter" 示例演示了如何使用 LLM 驱动的代理自动化发布推文的操作。观看演示视频：
 
 [![发布 Twitter 示例](https://img.youtube.com/vi/9GSG7uFv8p8/0.jpg)](https://www.youtube.com/watch?v=9GSG7uFv8p8)
 
@@ -93,7 +93,7 @@ HandGPT 提供示例代理，帮助开发者快速入门。例如，"发布 Twit
 
 ## 贡献
 
-我们欢迎大家为 智手AI 做出贡献！有关如何开始的信息，请查看我们的 [贡献指南](CONTRIBUTING.md)。
+我们欢迎大家为智手AI 做出贡献！有关如何开始的信息，请查看我们的 [贡献指南](CONTRIBUTING.md)。
 
 ---
 
