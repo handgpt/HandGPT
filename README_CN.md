@@ -1,12 +1,11 @@
-# HandGPT
+# 智手AI
 
 ![HandGPT Logo](https://avatars.githubusercontent.com/u/177122101?s=100&v=4)
 
-HandGPT 是一个创新工具，专为开发和测试大型语言模型（LLM）而设计，使其能够控制智能手机和电脑等设备。该项目结合了软件应用程序和智能硬件，赋予 LLM 通过模拟视觉和动作与设备交互的能力。
+智手AI (HandGPT) 是一个开发者工具，专为开发和测试大型语言模型（LLM）而设计，使其能够控制智能手机和电脑等设备。该项目结合了软件应用程序和智能硬件，赋予 LLM 通过模拟视觉和动作与设备交互的能力。
+智手AI 可适配 OpenAI 的新型 **Operator** 模型，这是一种功能强大的 AI 代理，能够通过模拟浏览、点击和填写表单来自动化网络任务。通过这一集成，智手AI 平台让用户能够利用 Operator 的先进功能，实现设备与网络的无缝交互，从而显著提升生产力和可用性，包括提交报告、管理在线服务以及执行复杂的网络工作流程等任务。
 
-最近，HandGPT 可适配 OpenAI 的新型 **Operator** 模型，这是一种功能强大的 AI 代理，能够通过模拟浏览、点击和填写表单来自动化网络任务。通过这一集成，HandGPT 平台让用户能够利用 Operator 的先进功能，实现设备与网络的无缝交互，从而显著提升生产力和可用性，包括提交报告、管理在线服务以及执行复杂的网络工作流程等任务。
-
-- **GitHub 仓库**：[HandGPT](https://github.com/handgpt/HandGPT)
+- **GitHub 仓库**：[智手AI](https://github.com/handgpt/HandGPT)
 - **iOS 应用**：[在 App Store 下载](https://apps.apple.com/us/app/handgpt/id6737915559)
 - **智能硬件**：[立即购买](https://handgpt.app)
 
@@ -94,7 +93,7 @@ HandGPT 提供示例代理，帮助开发者快速入门。例如，"发布 Twit
 
 ## 贡献
 
-我们欢迎大家为 HandGPT 做出贡献！有关如何开始的信息，请查看我们的 [贡献指南](CONTRIBUTING.md)。
+我们欢迎大家为 智手AI 做出贡献！有关如何开始的信息，请查看我们的 [贡献指南](CONTRIBUTING.md)。
 
 ---
 
@@ -107,7 +106,7 @@ HandGPT 提供示例代理，帮助开发者快速入门。例如，"发布 Twit
 
 ## 许可证
 
-HandGPT 在 [MIT 许可证](LICENSE) 下授权使用。更多详细信息请参阅 LICENSE 文件。
+智手AI 在 [MIT 许可证](LICENSE) 下授权使用。更多详细信息请参阅 LICENSE 文件。
 
 ---
 
@@ -120,7 +119,7 @@ HandGPT 在 [MIT 许可证](LICENSE) 下授权使用。更多详细信息请参�
 
 ## 鸣谢
 
-HandGPT 是一个充满热情的团队共同努力的成果，致力于推动 AI 应用的发展。我们感谢所有贡献者和支持者，感谢您帮助实现这一愿景。
+智手AI 是一个充满热情的团队共同努力的成果，致力于推动 AI 应用的发展。我们感谢所有贡献者和支持者，感谢您帮助实现这一愿景。
 
 [English Version](README.md)
 
